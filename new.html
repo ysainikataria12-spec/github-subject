@@ -1,26 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Styled Webpage</title>
-  <link rel="stylesheet" href="styles_1.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern HTML5 Landing Page</title>
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --card-bg: #ffffff;
+            --primary-color: #3b82f6;
+            --accent-color: #1d4ed8;
+            --border-color: #e2e8f0;
+        }
 
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --primary-color: #60a5fa;
+            --accent-color: #3b82f6;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: max-width: 600px;
+            margin: 0 auto 2rem auto;
+            opacity: 0.8;
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Breakpoint */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.25rem; }
+            .nav-links { display: none; } /* Simplified mobile handling */
+        }
+    </style>
 </head>
-<body style="background-color:powderblue;">
+<body>
 
-  <header>
-    <h1>Welcome to My Website</h1>
-    <p>A clean layout styled with external CSS.</p>
-  </header>
+    <!-- Main Header -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">BrandName</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode">🌙 Mode</button></li>
+                <li><a href="#" class="btn">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <section class="content-box">
-      <h2>About This Page</h2>
-      <p>Using an external style sheet keeps code organized and reusable across multiple web pages.</p>
-      <button class="btn-primary">Click Me</button>
-    </section>
-  </main>
+    <!-- Hero Content -->
+    <main>
+        <section class="hero">
+            <h1>Build Beautiful Web Pages Instantly</h1>
+            <p>A pristine starter template engineered with semantic HTML5 components, responsive CSS layouts, and built-in theme switching capability.</p>
+            <button class="btn" onclick="alert('Welcome to your new site!')">Explore Features</button>
+        </section>
 
+        <!-- Features Showcase -->
+        <section class="features" id="features">
+            <div class="card">
+                <h3>Fully Responsive</h3>
+                <p>Designed using CSS Flexbox and Grid components. Your application interface transitions flawlessly across smartphones, tablets, and desktop displays.</p>
+            </div>
+            <div class="card">
+                <h3>Clean Architecture</h3>
+                <p>Strict structural separation utilizing native semantic tags. Fully optimized to support clear web browser indexing and clean developer maintenance patterns.</p>
+            </div>
+            <div class="card">
+                <h3>Dynamic Dark Mode</h3>
+                <p>Equipped with built-in client CSS variables framework. Adapts UI palettes efficiently between light and dark configurations based on direct user instruction.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer>
+        <p>&copy; 2026 BrandName. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        const themeBtn = document.getElementById('themeBtn');
+        
+        // Simple dark mode toggler toggle logic
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeBtn.textContent = '🌙 Dark';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeBtn.textContent = '☀️ Light';
+            }
+        });
+    </script>
 </body>
 </html>
